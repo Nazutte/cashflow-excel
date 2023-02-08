@@ -1,26 +1,24 @@
-const ExcelJS = require('exceljs');
-const workbook = new ExcelJS.Workbook();
+function makeCashflowExcel(){
+  let allTotalIndex;
+  let amountOfColumns;
+  let isFisrtHalf;
+  let colSpan;
+  if(tableName == 'firstHalf'){
+    allTotalIndex = 0;
+    amountOfColumns = 15;
+    isFisrtHalf = true;
+    colSpan = 17;
+  } else {
+    allTotalIndex = 1;
+    amountOfColumns = new Date(year, month, 0).getDate() - 15;
+    isFisrtHalf = false;
+    colSpan = amountOfColumns + 3
+  }
 
-async function main(){
-  workbook.creator = 'Fenaka';
-  workbook.lastModifiedBy = 'Fenaka';
-  workbook.created = new Date(2023, 2, 5);
-  workbook.modified = new Date();
-  workbook.lastPrinted = new Date(2022, 12, 27);
-  workbook.properties.date1904 = true;
-  workbook.calcProperties.fullCalcOnLoad = true;
+  // let details = ['details'];
+  // if(isFisrtHalf){
+  //   for(let count = ){
 
-  workbook.views = [{
-    x: 0, y: 0, width: 10000, height: 20000,
-    firstSheet: 0, activeTab: 1, visibility: 'visible'
-  }]
-
-  const sheet = workbook.addWorksheet('My Sheet', {
-    headerFooter:{ firstHeader: "Hello Exceljs", firstFooter: "Hello World" },
-    pageSetup:{ paperSize: 9, orientation:'landscape' },
-  });
-
-  await workbook.xlsx.writeFile('./excel-files/excel.xlsx');
+  //   }
+  // }
 }
-
-main();
