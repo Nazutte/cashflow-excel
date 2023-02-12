@@ -32,22 +32,27 @@ main();
 
 // FUNCTIONS
 function createCashflowExcel(year, month, tableName, worksheet){
+  const {
+    boldCenter,
+    boldCenterFill,
+  } = require('./styles')
+
   let rowCount = 5;
   let allTotalIndex;
   let amountOfColumns;
-  let isFisrtHalf;
+  let isFirstHalf;
   let colSpan;
   let dayStart;
   if(tableName == 'firstHalf'){
     allTotalIndex = 0;
     amountOfColumns = 15;
-    isFisrtHalf = true;
+    isFirstHalf = true;
     colSpan = 17;
     dayStart = 1;
   } else {
     allTotalIndex = 1;
     amountOfColumns = new Date(year, month, 0).getDate() - 15;
-    isFisrtHalf = false;
+    isFirstHalf = false;
     colSpan = amountOfColumns + 3
     dayStart = 16;
   }
@@ -57,15 +62,28 @@ function createCashflowExcel(year, month, tableName, worksheet){
   details = details.concat(days);
   details.push('Total');
 
-  if(!isFisrtHalf){
+  if(!isFirstHalf){
     details.push('Grand Total');
   }
 
-  console.log(details);
-  const headerRow = worksheet.getRow(rowCount);
-  insertRow(headerRow, rowCount, details);
+  insertRow(worksheet, rowCount, details, boldCenterFill);
+  rowCount++;
 }
 
-function insertRow(row, rowCount, values, detailStyle, valueStyle){
-  
+function insertRow(worksheet, rowCount, values, detailStyle, valueStyle){
+  let columnCount = 65;
+  values.forEach(value => {
+    const cellName = String.fromCharCode(columnCount) + rowCount;
+    const cell = worksheet.getCell(cellName);
+
+    detailStyle.value = value;
+    insertCell(cell, detailStyle);
+    columnCount++;
+  });
+}
+
+function insertCell(cell, styles){
+  for(const style in styles){
+    cell[style] = styles[style];
+  }
 }
