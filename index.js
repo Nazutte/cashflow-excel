@@ -1,8 +1,17 @@
-const ExcelJS = require('exceljs');
+const ExcelJS = require('exceljs')
+const cashflow = require('./resources/cashflow.json');
+const { boldCenter } = require('./styles')
+
+let worksheet;
+let rowCount;
+let allTotalIndex;
+let amountOfColumns;
+let isFirstHalf;
+let colSpan;
+let dayStart;
 
 async function main(){
   const workbook = new ExcelJS.Workbook();
-  const cashflow = require('./resources/cashflow.json');
 
   workbook.creator = 'Fenaka';
   workbook.lastModifiedBy = 'Fenaka';
@@ -21,9 +30,9 @@ async function main(){
     pageSetup:{ paperSize: 9, orientation:'landscape' },
   });
 
-  const worksheet = workbook.getWorksheet('My Sheet');
+  worksheet = workbook.getWorksheet('My Sheet');
 
-  createCashflowExcel(2022, 2, 'firstHalf', worksheet);
+  createCashflowExcel(2022, 2, 'firstHalf', cashflow);
 
   await workbook.xlsx.writeFile('./excel-files/excel.xlsx');
 }
@@ -31,18 +40,12 @@ async function main(){
 main();
 
 // FUNCTIONS
-function createCashflowExcel(year, month, tableName, worksheet){
-  const {
-    boldCenter,
-    boldCenterFill,
-  } = require('./styles')
+function createCashflowExcel(year, month, tableName){
+  rowCount = 5;
 
-  let rowCount = 5;
-  let allTotalIndex;
-  let amountOfColumns;
-  let isFirstHalf;
-  let colSpan;
-  let dayStart;
+  worksheet.getColumn('A').width = 4;
+  worksheet.getColumn('B').width = 15;
+
   if(tableName == 'firstHalf'){
     allTotalIndex = 0;
     amountOfColumns = 15;
@@ -66,24 +69,60 @@ function createCashflowExcel(year, month, tableName, worksheet){
     details.push('Grand Total');
   }
 
-  insertRow(worksheet, rowCount, details, boldCenterFill);
+  worksheet.mergeCells(`A${rowCount}:B${rowCount}`);
+  insertRow(details, boldCenter);
   rowCount++;
+
+  const diff = ['securityDeposit'];
+  insertType('cashIn', allTotalIndex, diff);
 }
 
-function insertRow(worksheet, rowCount, values, detailStyle, valueStyle){
-  let columnCount = 65;
+function insertType(cashflowTypeString, allTotalIndex, diff){
+  const cashflowType = cashflow.cashflowObj[allTotalIndex][cashflowTypeString];
+
+  for(const type in cashflowType){
+    let colLength = 0;
+    const found = diff.find(element => element == type);
+
+    if(!found){
+      for(const category in cashflowType[type]){
+        let arr = [category];
+        arr = arr.concat(cashflowType[type][category]);
+        insertRow(arr, boldCenter);
+        rowCount++;
+        colLength++;
+      }
+    }
+    
+    // console.log(type);
+    // console.log('Column Length: ' + colLength);
+    // console.log(rowCount - colLength);
+    // console.log(rowCount - 1);
+    // console.log('\n');
+
+    if(!found){
+      if((rowCount - 1) != (rowCount - colLength)){
+        worksheet.mergeCells(`A${rowCount - colLength}:A${rowCount - 1}`);
+      }
+    }
+  }
+}
+
+function insertRow(values, style){
+  let columnCount = 66;
+
   values.forEach(value => {
+    if(typeof value == 'object'){
+      if(value.amount == null){
+        value = 0;
+      } else {
+        value = value.amount;
+      }
+    }
     const cellName = String.fromCharCode(columnCount) + rowCount;
     const cell = worksheet.getCell(cellName);
 
-    detailStyle.value = value;
-    insertCell(cell, detailStyle);
+    Object.assign(cell, style, { value });
     columnCount++;
   });
-}
-
-function insertCell(cell, styles){
-  for(const style in styles){
-    cell[style] = styles[style];
-  }
 }
