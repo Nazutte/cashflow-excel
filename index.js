@@ -1,7 +1,7 @@
 const ExcelJS = require('exceljs')
 const cashflow = require('./resources/cashflow.json')
-const { startCase } = require('lodash')
-const { boldCenter, verticalBold, right, bold, center } = require('./styles')
+const { startCase, upperCase } = require('lodash')
+const { boldCenter, verticalBold, right, bold, center, rightBold } = require('./styles')
 
 let worksheet;
 let rowCount;
@@ -79,7 +79,16 @@ function createCashflowExcel(year, month, tableName){
 
   // CASH IN
   worksheet.mergeCells(`A${rowCount}:${span}${rowCount}`);
-  Object.assign(worksheet.getCell(`A${rowCount}`), bold, { value: '  CASH IN' });
+  Object.assign(worksheet.getCell(`A${rowCount}`), bold, { value: '  CASH IN'});
+  rowCount++;
+
+  const openingBalance = cashflow.cashflowObj[allTotalIndex].openingBalance;
+  let OBArr = ['openingBalance'];
+  OBArr = OBArr.concat(openingBalance);
+  OBArr.push('');
+
+  worksheet.mergeCells(`A${rowCount}:B${rowCount}`);
+  insertRow(OBArr, boldCenter, rightBold, false)
   rowCount++;
 
   const cashInDiff = ['securityDeposit'];
@@ -87,15 +96,28 @@ function createCashflowExcel(year, month, tableName){
 
   // CASH OUT
   worksheet.mergeCells(`A${rowCount}:${span}${rowCount}`);
-  Object.assign(worksheet.getCell(`A${rowCount}`), bold, { value: '  CASH OUT' });
+  Object.assign(worksheet.getCell(`A${rowCount}`), bold, { value: '  CASH OUT'});
   rowCount++;
 
   const cashOutDiff = ['cashOutOther'];
   insertType('cashOut', allTotalIndex, cashOutDiff);
+
+  const closingBalance = cashflow.cashflowObj[allTotalIndex].closingBalance;
+  let CBArr = ['closingBalance'];
+  CBArr = CBArr.concat(openingBalance);
+  CBArr.push('');
+
+  worksheet.mergeCells(`A${rowCount}:B${rowCount}`);
+  insertRow(CBArr, boldCenter, rightBold, false)
+  rowCount++;
 }
 
 function insertType(cashflowTypeString, allTotalIndex, diff){
   const cashflowType = cashflow.cashflowObj[allTotalIndex][cashflowTypeString];
+
+  // worksheet.mergeCells(`A${rowCount}:${span}${rowCount}`);
+  // Object.assign(worksheet.getCell(`A${rowCount}`), bold, { value: '  ' +  upperCase(cashflowTypeString)});
+  // rowCount++;
 
   for(const type in cashflowType){
     let colLength = 0;
@@ -121,7 +143,7 @@ function insertType(cashflowTypeString, allTotalIndex, diff){
       const typeTotal = cashflow.cashflowObj[allTotalIndex].allTotal[type];
       const typeTotalsTotal = cashflow.bothHalfTotal.allTotal[type][allTotalIndex];
       const arr = ['', 'Total'].concat(typeTotal, typeTotalsTotal);
-      insertRow(arr, boldCenter, right, true);
+      insertRow(arr, boldCenter, rightBold, true);
       rowCount++
     }
   }
@@ -137,6 +159,16 @@ function insertType(cashflowTypeString, allTotalIndex, diff){
       rowCount++;
     }
   });
+
+  worksheet.mergeCells(`A${rowCount}:B${rowCount}`);
+  const cashflowTypeTotal = cashflow.cashflowObj[allTotalIndex].allTotal[cashflowTypeString];
+  const cashflowTypeTotalsTotal = cashflow.bothHalfTotal.allTotal[cashflowTypeString][allTotalIndex];
+  let arr = [cashflowTypeString + 'Total'];
+  arr = arr.concat(cashflowTypeTotal);
+  arr.push(cashflowTypeTotalsTotal);
+
+  insertRow(arr, boldCenter, rightBold, false)
+  rowCount++;
 }
 
 function insertRow(values, detailStyle, valueStyle, diff){
@@ -174,4 +206,10 @@ function insertRow(values, detailStyle, valueStyle, diff){
     }
     columnCount++;
   });
+}
+
+function dataFormatter(detailName, values, total, grandTotal){
+  if(values == null){
+    worksheet.mergeCells(`A${rowCount}:${span}${rowCount}`);
+  }
 }

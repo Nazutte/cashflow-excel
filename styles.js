@@ -90,4 +90,5 @@ module.exports = {
   right,
   bold,
   center,
+  rightBold,
 }
