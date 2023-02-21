@@ -122,7 +122,7 @@ function createCashflowExcel(year, month, tableName){
     diff: true,
   }
 
-  const SafeBalanceStyles = {
+  const safeBalanceStyles = {
     detailStyle: boldCenter,
     valueStyle: rightBold,
     diff: false,
@@ -137,7 +137,7 @@ function createCashflowExcel(year, month, tableName){
   dataFormatter(2, 'Total', balanceTotal, null, null, otherBalanceTotalStyles);
   rowCount++;
 
-  dataFormatter(1, 'totalSafeBalance', safeBalance, null, null, SafeBalanceStyles);
+  dataFormatter(1, 'totalSafeBalance', safeBalance, null, null, safeBalanceStyles);
   rowCount++;
 }
 
@@ -227,8 +227,7 @@ function insertRow(values, detailStyle, valueStyle, diff){
     }
 
     if(typeof value == 'number' && values[0] != 'Details'){
-      value = (value / 100).toFixed(2);
-      value += ' ';
+      value = (value / 100);
     }
 
     const cellName = String.fromCharCode(columnCount) + rowCount;
@@ -237,7 +236,11 @@ function insertRow(values, detailStyle, valueStyle, diff){
     if(columnCount == 66){
       Object.assign(cell, detailStyle, { value });
     } else {
-      Object.assign(cell, valueStyle, { value });
+      if(typeof value == 'number' && values[0] != 'Details'){
+        Object.assign(cell, valueStyle, { value }, { numFmt: '#,##0.00' });
+      } else {
+        Object.assign(cell, valueStyle, { value });
+      }
     }
     columnCount++;
   });
