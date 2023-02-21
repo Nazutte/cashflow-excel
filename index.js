@@ -64,60 +64,85 @@ function createCashflowExcel(year, month, tableName){
   span = String.fromCharCode(65 + colSpan);
 
   // PAGE SETUP
-  let details = ['Details'];
   const days = Array.from({length: amountOfColumns}, (_, i) => i + dayStart);
-  details = details.concat(days);
-  details.push('Total');
-
-  if(!isFirstHalf){
-    details.push('Grand Total');
+  const styles = {
+    detailStyle: boldCenter,
+    valueStyle: boldCenter,
+    diff: false,
   }
 
-  worksheet.mergeCells(`A${rowCount}:B${rowCount}`);
-  insertRow(details, boldCenter, boldCenter, false);
+  dataFormatter(1, 'Details', days, 'Total', null, styles);
   rowCount++;
 
   // CASH IN
-  worksheet.mergeCells(`A${rowCount}:${span}${rowCount}`);
-  Object.assign(worksheet.getCell(`A${rowCount}`), bold, { value: '  CASH IN'});
+  dataFormatter(-1, 'CASH IN');
   rowCount++;
 
   const openingBalance = cashflow.cashflowObj[allTotalIndex].openingBalance;
-  let OBArr = ['openingBalance'];
-  OBArr = OBArr.concat(openingBalance);
-  OBArr.push('');
+  const balanceStyles = {
+    detailStyle: boldCenter,
+    valueStyle: rightBold,
+    diff: false,
+  }
 
-  worksheet.mergeCells(`A${rowCount}:B${rowCount}`);
-  insertRow(OBArr, boldCenter, rightBold, false)
+  dataFormatter(1, 'openingBalance', openingBalance, null, null, balanceStyles);
   rowCount++;
 
   const cashInDiff = ['securityDeposit'];
   insertType('cashIn', allTotalIndex, cashInDiff);
 
   // CASH OUT
-  worksheet.mergeCells(`A${rowCount}:${span}${rowCount}`);
-  Object.assign(worksheet.getCell(`A${rowCount}`), bold, { value: '  CASH OUT'});
+  dataFormatter(-1, 'CASH OUT');
   rowCount++;
 
   const cashOutDiff = ['cashOutOther'];
   insertType('cashOut', allTotalIndex, cashOutDiff);
 
   const closingBalance = cashflow.cashflowObj[allTotalIndex].closingBalance;
-  let CBArr = ['closingBalance'];
-  CBArr = CBArr.concat(openingBalance);
-  CBArr.push('');
+  dataFormatter(1, 'closingBalance', closingBalance, null, null, balanceStyles);
+  rowCount++;
 
-  worksheet.mergeCells(`A${rowCount}:B${rowCount}`);
-  insertRow(CBArr, boldCenter, rightBold, false)
+  // OTHER BALANCE
+  dataFormatter(-1, 'OTHER BALANCE');
+  rowCount++;
+
+  const float = cashflow.cashflowObj[allTotalIndex].balance.float;
+  const pettyCash = cashflow.cashflowObj[allTotalIndex].balance.pettyCash;
+  const balanceTotal = cashflow.cashflowObj[allTotalIndex].allTotal.balance;
+  const safeBalance = cashflow.cashflowObj[allTotalIndex].allTotal.safeBalance;
+  const otherBalanceStyles = {
+    detailStyle: center,
+    valueStyle: right,
+    diff: true,
+  }
+
+  const otherBalanceTotalStyles = {
+    detailStyle: boldCenter,
+    valueStyle: rightBold,
+    diff: true,
+  }
+
+  const SafeBalanceStyles = {
+    detailStyle: boldCenter,
+    valueStyle: rightBold,
+    diff: false,
+  }
+
+  dataFormatter(2, 'float', float, null, null, otherBalanceStyles);
+  rowCount++;
+
+  dataFormatter(2, 'pettyCash', pettyCash, null, null, otherBalanceStyles);
+  rowCount++;
+
+  dataFormatter(2, 'Total', balanceTotal, null, null, otherBalanceTotalStyles);
+  rowCount++;
+
+  dataFormatter(1, 'totalSafeBalance', safeBalance, null, null, SafeBalanceStyles);
   rowCount++;
 }
 
 function insertType(cashflowTypeString, allTotalIndex, diff){
   const cashflowType = cashflow.cashflowObj[allTotalIndex][cashflowTypeString];
-
-  // worksheet.mergeCells(`A${rowCount}:${span}${rowCount}`);
-  // Object.assign(worksheet.getCell(`A${rowCount}`), bold, { value: '  ' +  upperCase(cashflowTypeString)});
-  // rowCount++;
 
   for(const type in cashflowType){
     let colLength = 0;
@@ -125,49 +150,59 @@ function insertType(cashflowTypeString, allTotalIndex, diff){
 
     if(!found){
       for(const category in cashflowType[type]){
+        const values = cashflowType[type][category];
         const categoryTotal = cashflow.bothHalfTotal[cashflowTypeString][type][category][allTotalIndex];
-        let arr = [category];
-        arr = arr.concat(cashflowType[type][category]);
-        arr.push(categoryTotal);
-        insertRow(arr, center, right, false);
+        const styles = {
+          detailStyle: center,
+          valueStyle: right,
+          diff: false,
+        }
+
+        dataFormatter(0, category, values, categoryTotal, null, styles);
         rowCount++;
         colLength++;
       }
 
-      const typeCell = worksheet.getCell(`A${rowCount - colLength}`);
-      if((rowCount - 1) != (rowCount - colLength)){
-        worksheet.mergeCells(`A${rowCount - colLength}:A${rowCount - 1}`);
-      }
-      Object.assign(typeCell, verticalBold, { value: startCase(type) });
+      dataFormatter(colLength, type);
+
 
       const typeTotal = cashflow.cashflowObj[allTotalIndex].allTotal[type];
       const typeTotalsTotal = cashflow.bothHalfTotal.allTotal[type][allTotalIndex];
-      const arr = ['', 'Total'].concat(typeTotal, typeTotalsTotal);
-      insertRow(arr, boldCenter, rightBold, true);
+      const styles = {
+        detailStyle: boldCenter,
+        valueStyle: rightBold,
+        diff: true,
+      }
+
+      dataFormatter(2, 'Total', typeTotal, typeTotalsTotal, null, styles);
       rowCount++
     }
   }
 
   diff.forEach(type => {
     for(const category in cashflowType[type]){
+      const values = cashflowType[type][category];
       const categoryTotal = cashflow.bothHalfTotal[cashflowTypeString][type][category][allTotalIndex];
-      let arr = ['', category];
-      arr = arr.concat(cashflowType[type][category]);
-      arr.push(categoryTotal);
+      const styles = {
+        detailStyle: center,
+        valueStyle: right,
+        diff: true,
+      }
 
-      insertRow(arr, center, right, true);
+      dataFormatter(2, category, values, categoryTotal, null, styles);
       rowCount++;
     }
   });
 
-  worksheet.mergeCells(`A${rowCount}:B${rowCount}`);
   const cashflowTypeTotal = cashflow.cashflowObj[allTotalIndex].allTotal[cashflowTypeString];
   const cashflowTypeTotalsTotal = cashflow.bothHalfTotal.allTotal[cashflowTypeString][allTotalIndex];
-  let arr = [cashflowTypeString + 'Total'];
-  arr = arr.concat(cashflowTypeTotal);
-  arr.push(cashflowTypeTotalsTotal);
+  const styles = {
+    detailStyle: boldCenter,
+    valueStyle: rightBold,
+    diff: false,
+  }
 
-  insertRow(arr, boldCenter, rightBold, false)
+  dataFormatter(1, (cashflowTypeString + 'Total'), cashflowTypeTotal, cashflowTypeTotalsTotal, null, styles);
   rowCount++;
 }
 
@@ -208,8 +243,53 @@ function insertRow(values, detailStyle, valueStyle, diff){
   });
 }
 
-function dataFormatter(detailName, values, total, grandTotal){
+function dataFormatter(insertType, detailName, values, total, grandTotal, styles){
   if(values == null){
-    worksheet.mergeCells(`A${rowCount}:${span}${rowCount}`);
+    if(insertType > 0){
+      const colLength = insertType;
+      const typeCell = worksheet.getCell(`A${rowCount - colLength}`);
+      if((rowCount - 1) != (rowCount - colLength)){
+        worksheet.mergeCells(`A${rowCount - colLength}:A${rowCount - 1}`);
+      }
+      Object.assign(typeCell, verticalBold, { value: startCase(detailName) });
+    } else {
+      const value = '  ' + detailName;
+      worksheet.mergeCells(`A${rowCount}:${span}${rowCount}`);
+      Object.assign(worksheet.getCell(`A${rowCount}`), bold, { value });
+    }
+  } else {
+    let mergedValues = [detailName];
+    mergedValues = mergedValues.concat(values);
+
+    if(total != null){
+      mergedValues.push(total);
+    } else {
+      mergedValues.push('');
+    }
+
+    if(!isFirstHalf){
+      if(grandTotal != null){
+        mergedValues.push(grandTotal);
+      } else {
+        mergedValues.push('');
+      }
+    }
+
+    if(insertType == 0){
+      const { detailStyle, valueStyle, diff } = styles;
+      insertRow(mergedValues, detailStyle, valueStyle, diff);
+    }
+
+    if(insertType == 1){
+      const { detailStyle, valueStyle, diff } = styles;
+      worksheet.mergeCells(`A${rowCount}:B${rowCount}`);
+      insertRow(mergedValues, detailStyle, valueStyle, diff);
+    }
+
+    if(insertType == 2){
+      const { detailStyle, valueStyle, diff } = styles;
+      mergedValues = [''].concat(mergedValues);
+      insertRow(mergedValues, detailStyle, valueStyle, diff);
+    }
   }
 }
