@@ -28,13 +28,19 @@ async function main(){
     firstSheet: 0, activeTab: 1, visibility: 'visible'
   }]
 
-  const sheet = workbook.addWorksheet('My Sheet', {
+  // FIRST HALF
+  workbook.addWorksheet('First Half', {
     pageSetup:{ paperSize: 9, orientation:'landscape' },
   });
-
-  worksheet = workbook.getWorksheet('My Sheet');
-
-  createCashflowExcel(2022, 2, 'firstHalf', cashflow);
+  worksheet = workbook.getWorksheet('First Half');
+  createCashflowExcel('firstHalf', cashflow);
+  
+  //SECOND HALF
+  workbook.addWorksheet('Second Half', {
+    pageSetup:{ paperSize: 9, orientation:'landscape' },
+  });
+  worksheet = workbook.getWorksheet('Second Half');
+  createCashflowExcel('secHalf', cashflow);
 
   await workbook.xlsx.writeFile('./excel-files/excel.xlsx');
 }
@@ -42,7 +48,7 @@ async function main(){
 main();
 
 // FUNCTIONS
-function createCashflowExcel(year, month, tableName){
+function createCashflowExcel(tableName){
   rowCount = 6;
 
   worksheet.getColumn('A').width = 4;
@@ -56,7 +62,7 @@ function createCashflowExcel(year, month, tableName){
     dayStart = 1;
   } else {
     allTotalIndex = 1;
-    amountOfColumns = new Date(year, month, 0).getDate() - 15;
+    amountOfColumns = cashflow.cashflowObj[0].day - 15;
     isFirstHalf = false;
     colSpan = amountOfColumns + 3
     dayStart = 16;
@@ -71,7 +77,12 @@ function createCashflowExcel(year, month, tableName){
     diff: false,
   }
 
-  dataFormatter(1, 'Details', days, 'Total', null, styles);
+  let grandTotal = null;
+  if(!isFirstHalf){
+    grandTotal = 'grandTotal';
+  }
+
+  dataFormatter(1, 'Details', days, 'Total', grandTotal, styles);
   rowCount++;
 
   // CASH IN
@@ -158,7 +169,12 @@ function insertType(cashflowTypeString, allTotalIndex, diff){
           diff: false,
         }
 
-        dataFormatter(0, category, values, categoryTotal, null, styles);
+        let grandTotal = null;
+        if(!isFirstHalf){
+          grandTotal = cashflow.grandTotal[cashflowTypeString][type][category][0];
+        }
+
+        dataFormatter(0, category, values, categoryTotal, grandTotal, styles);
         rowCount++;
         colLength++;
       }
@@ -174,7 +190,12 @@ function insertType(cashflowTypeString, allTotalIndex, diff){
         diff: true,
       }
 
-      dataFormatter(2, 'Total', typeTotal, typeTotalsTotal, null, styles);
+      let grandTotal = null;
+      if(!isFirstHalf){
+        grandTotal = cashflow.grandTotal.allTotal[type][0];
+      }
+
+      dataFormatter(2, 'Total', typeTotal, typeTotalsTotal, grandTotal, styles);
       rowCount++
     }
   }
@@ -189,7 +210,12 @@ function insertType(cashflowTypeString, allTotalIndex, diff){
         diff: true,
       }
 
-      dataFormatter(2, category, values, categoryTotal, null, styles);
+      let grandTotal = null;
+      if(!isFirstHalf){
+        grandTotal = cashflow.grandTotal[cashflowTypeString][type][category][0];
+      }
+
+      dataFormatter(2, category, values, categoryTotal, grandTotal, styles);
       rowCount++;
     }
   });
@@ -202,48 +228,13 @@ function insertType(cashflowTypeString, allTotalIndex, diff){
     diff: false,
   }
 
-  dataFormatter(1, (cashflowTypeString + 'Total'), cashflowTypeTotal, cashflowTypeTotalsTotal, null, styles);
-  rowCount++;
-}
-
-function insertRow(values, detailStyle, valueStyle, diff){
-  let columnCount = 66;
-
-  if(diff == true){
-    columnCount -= 1
+  let grandTotal = null;
+  if(!isFirstHalf){
+    grandTotal = cashflow.grandTotal.allTotal[cashflowTypeString][0];
   }
 
-  values.forEach(value => {
-    if(typeof value == 'object'){
-      if(value.amount == null){
-        value = 0;
-      } else {
-        value = value.amount;
-      }
-    }
-
-    if(typeof value == 'string'){
-      value = startCase(value);
-    }
-
-    if(typeof value == 'number' && values[0] != 'Details'){
-      value = (value / 100);
-    }
-
-    const cellName = String.fromCharCode(columnCount) + rowCount;
-    const cell = worksheet.getCell(cellName);
-
-    if(columnCount == 66){
-      Object.assign(cell, detailStyle, { value });
-    } else {
-      if(typeof value == 'number' && values[0] != 'Details'){
-        Object.assign(cell, valueStyle, { value }, { numFmt: '#,##0.00' });
-      } else {
-        Object.assign(cell, valueStyle, { value });
-      }
-    }
-    columnCount++;
-  });
+  dataFormatter(1, (cashflowTypeString + 'Total'), cashflowTypeTotal, cashflowTypeTotalsTotal, grandTotal, styles);
+  rowCount++;
 }
 
 function dataFormatter(insertType, detailName, values, total, grandTotal, styles){
@@ -295,4 +286,44 @@ function dataFormatter(insertType, detailName, values, total, grandTotal, styles
       insertRow(mergedValues, detailStyle, valueStyle, diff);
     }
   }
+}
+
+function insertRow(values, detailStyle, valueStyle, diff){
+  let columnCount = 66;
+
+  if(diff == true){
+    columnCount -= 1
+  }
+
+  values.forEach(value => {
+    if(typeof value == 'object'){
+      if(value.amount == null){
+        value = 0;
+      } else {
+        value = value.amount;
+      }
+    }
+
+    if(typeof value == 'string'){
+      value = startCase(value);
+    }
+
+    if(typeof value == 'number' && values[0] != 'Details'){
+      value = (value / 100);
+    }
+
+    const cellName = String.fromCharCode(columnCount) + rowCount;
+    const cell = worksheet.getCell(cellName);
+
+    if(columnCount == 66){
+      Object.assign(cell, detailStyle, { value });
+    } else {
+      if(typeof value == 'number' && values[0] != 'Details'){
+        Object.assign(cell, valueStyle, { value }, { numFmt: '#,##0.00' });
+      } else {
+        Object.assign(cell, valueStyle, { value });
+      }
+    }
+    columnCount++;
+  });
 }
