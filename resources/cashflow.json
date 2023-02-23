@@ -1,7 +1,12 @@
 {
+    "generalBranchInfo": {
+        "day": 28,
+        "name": "HA.Baarah",
+        "id": 6
+    },
+
     "cashflowObj": [
         {
-            "day": 28,
             "dailyRecord": [
                 91,
                 92,
@@ -2894,7 +2899,6 @@
             }
         },
         {
-            "day": 28,
             "dailyRecord": [
                 106,
                 107,

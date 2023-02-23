@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node index.js"
+    "cpr": "node gen-cpr.js",
+    "br": "node gen-branch-report.js"
   },
   "dependencies": {
     "exceljs": "^4.3.0",

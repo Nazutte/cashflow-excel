@@ -62,7 +62,7 @@ function createCashflowExcel(tableName){
     dayStart = 1;
   } else {
     allTotalIndex = 1;
-    amountOfColumns = cashflow.cashflowObj[0].day - 15;
+    amountOfColumns = cashflow.generalBranchInfo.day - 15;
     isFirstHalf = false;
     colSpan = amountOfColumns + 3
     dayStart = 16;
@@ -319,7 +319,11 @@ function insertRow(values, detailStyle, valueStyle, diff){
       Object.assign(cell, detailStyle, { value });
     } else {
       if(typeof value == 'number' && values[0] != 'Details'){
-        Object.assign(cell, valueStyle, { value }, { numFmt: '#,##0.00' });
+        if(value == 0){
+          Object.assign(cell, valueStyle, { value: '-  ' });
+        } else {
+          Object.assign(cell, valueStyle, { value }, { numFmt: '#,##0.00' });
+        }
       } else {
         Object.assign(cell, valueStyle, { value });
       }
