@@ -14,6 +14,7 @@ const boldCenter = {
     size,
   },
   alignment: {
+    wrapText: true,
     horizontal: 'center', 
     vertical: 'middle',
   },
