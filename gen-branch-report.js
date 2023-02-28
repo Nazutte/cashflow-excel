@@ -37,21 +37,53 @@ main();
 // FUNCTIONS
 function createBranchReport(){
   // PAGE SETUP
-  const format = branchData.allRegionTotal[0].record;
+  const format = branchData.branch[0].record;
+  worksheet.getColumn('A').width = 20;
   createFormat(format);
+  rowCount += 2;
 
-  for(const category in format.cashInRecord){
-    console.log(category)
+  branchData.branch.push({ name: 'Total', record: branchData.grandTotal});
+
+  branchData.branch.forEach(branch => {
+    insertBranch(branch);
+    rowCount++;
+  });
+}
+
+function insertBranch(branch){
+  let columnCount = 65;
+  insertCell(branch.name, boldCenter);
+  insertCell(branch.record.openingBalance, rightBold);
+
+  const { cashInRecord, cashInRecordTotal, cashOutRecord, cashOutRecordTotal, other } = branch.record;
+
+  for(const type in cashInRecord){
+    insertCell(cashInRecord[type], right);
+  }
+  insertCell(cashInRecordTotal, rightBold);
+
+  for(const type in cashOutRecord){
+    insertCell(cashOutRecord[type], right);
+  }
+  insertCell(cashOutRecordTotal, rightBold);
+
+  insertCell(branch.record.closingBalance, rightBold);
+
+  for(const type in other){
+    insertCell(other[type], right);
   }
 
-  console.log('\n');
-  for(const category in format.cashOutRecord){
-    console.log(category)
-  }
+  function insertCell(value, style){
+    let cellName = String.fromCharCode(columnCount) + rowCount;
 
-  console.log('\n');
-  for(const category in format.other){
-    console.log(category)
+    if(typeof value == 'number'){
+      value = value/100;
+      Object.assign(worksheet.getCell(cellName), style, { value }, { numFmt: '#,##0.00' });
+    } else {
+      Object.assign(worksheet.getCell(cellName), style, { value });
+    }
+
+    columnCount++;
   }
 }
 

@@ -1,804 +1,479 @@
 {
-  "allRegionTotal": [
-      {
-          "regionId": 1,
-          "name": "Haa Alif Atoll",
-          "shortName": "HA",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 2,
-          "name": "Haa Dhaalu Atoll",
-          "shortName": "HDh",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 3,
-          "name": "Shaviyani Atoll",
-          "shortName": "Sh",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 4,
-          "name": "Noonu Atoll",
-          "shortName": "N",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 5,
-          "name": "Raa Atoll",
-          "shortName": "R",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 6,
-          "name": "Baa Atoll",
-          "shortName": "B",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 7,
-          "name": "Lhaviyani Atoll",
-          "shortName": "Lh",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 8,
-          "name": "Kaafu Atoll",
-          "shortName": "K",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 9,
-          "name": "Male City",
-          "shortName": "MLE",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 10,
-          "name": "Alif Alif Atoll",
-          "shortName": "AA",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 11,
-          "name": "Alif Dhaal Atoll",
-          "shortName": "ADh",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 12,
-          "name": "Vaavu Atoll",
-          "shortName": "V",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 13,
-          "name": "Meemu Atoll",
-          "shortName": "M",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 14,
-          "name": "Faafu Atoll",
-          "shortName": "F",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 15,
-          "name": "Dhaalu Atoll",
-          "shortName": "Dh",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 16,
-          "name": "Thaa Atoll",
-          "shortName": "Th",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 17,
-          "name": "Laamu Atoll",
-          "shortName": "L",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 18,
-          "name": "Gaafu Alif Atoll",
-          "shortName": "GA",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 19,
-          "name": "Gaafu Dhaalu Atoll",
-          "shortName": "GDh",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 20,
-          "name": "Gnaviyani Atoll",
-          "shortName": "Gn",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 21,
-          "name": "Addu City",
-          "shortName": "S",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      },
-      {
-          "regionId": 22,
-          "name": "Kulhudhuffushi City",
-          "shortName": "KD",
-          "record": {
-              "openingBalance": 0,
-              "closingBalance": 0,
-              "cashInRecord": {
-                  "electricity": 0,
-                  "water": 0,
-                  "sewerage": 0,
-                  "other income": 0,
-                  "security deposit": 0,
-                  "ice": 0
-              },
-              "cashInRecordTotal": 0,
-              "cashOutRecord": {
-                  "cash": 0,
-                  "cash security deposit": 0,
-                  "atm": 0,
-                  "online": 0,
-                  "cash agent": 0,
-                  "cheque": 0,
-                  "cash card": 0,
-                  "direct transfer": 0,
-                  "payment": 0,
-                  "settlement": 0
-              },
-              "cashOutRecordTotal": 0,
-              "other": {
-                  "float": 0,
-                  "pettyCash": 0
-              }
-          }
-      }
-  ],
-  "grandTotal": {
-      "openingBalance": 0,
-      "closingBalance": 0,
-      "cashInRecord": {
-          "electricity": 0,
-          "water": 0,
-          "sewerage": 0,
-          "other income": 0,
-          "security deposit": 0,
-          "ice": 0
-      },
-      "cashInRecordTotal": 0,
-      "cashOutRecord": {
-          "cash": 0,
-          "cash security deposit": 0,
-          "atm": 0,
-          "online": 0,
-          "cash agent": 0,
-          "cheque": 0,
-          "cash card": 0,
-          "direct transfer": 0,
-          "payment": 0,
-          "settlement": 0
-      },
-      "cashOutRecordTotal": 0,
-      "other": {
-          "float": 0,
-          "pettyCash": 0
-      }
-  }
+    "id": 6,
+    "shortName": "B",
+    "name": "Baa Atoll",
+    "branch": [
+        {
+            "id": 75,
+            "name": "Dharavandhoo",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 76,
+            "name": "Dhonfanu",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 77,
+            "name": "Eydhafushi",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 78,
+            "name": "Fehendhoo",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 79,
+            "name": "Fulhadhoo",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 80,
+            "name": "Goidhoo",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 81,
+            "name": "Hithaadhoo",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 82,
+            "name": "Kamadhoo",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 83,
+            "name": "Kendhoo",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 84,
+            "name": "Kihaadhoo",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 85,
+            "name": "Kudarikilu",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 86,
+            "name": "Maalhos",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        },
+        {
+            "id": 87,
+            "name": "Thulhaadhoo",
+            "record": {
+                "openingBalance": 0,
+                "closingBalance": 0,
+                "cashInRecord": {
+                    "electricity": 0,
+                    "water": 0,
+                    "sewerage": 0,
+                    "other income": 0,
+                    "security deposit": 0,
+                    "ice": 0
+                },
+                "cashInRecordTotal": 0,
+                "cashOutRecord": {
+                    "cash": 0,
+                    "cash security deposit": 0,
+                    "atm": 0,
+                    "online": 0,
+                    "cash agent": 0,
+                    "cheque": 0,
+                    "cash card": 0,
+                    "direct transfer": 0,
+                    "payment": 0,
+                    "settlement": 0
+                },
+                "cashOutRecordTotal": 0,
+                "other": {
+                    "float": 0,
+                    "pettyCash": 0
+                }
+            }
+        }
+    ],
+    "grandTotal": {
+        "openingBalance": 0,
+        "closingBalance": 0,
+        "cashInRecord": {
+            "electricity": 0,
+            "water": 0,
+            "sewerage": 0,
+            "other income": 0,
+            "security deposit": 0,
+            "ice": 0
+        },
+        "cashInRecordTotal": 0,
+        "cashOutRecord": {
+            "cash": 0,
+            "cash security deposit": 0,
+            "atm": 0,
+            "online": 0,
+            "cash agent": 0,
+            "cheque": 0,
+            "cash card": 0,
+            "direct transfer": 0,
+            "payment": 0,
+            "settlement": 0
+        },
+        "cashOutRecordTotal": 0,
+        "other": {
+            "float": 0,
+            "pettyCash": 0
+        }
+    }
 }
