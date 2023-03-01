@@ -57,20 +57,21 @@ function insertBranch(branch){
 
   const { cashInRecord, cashInRecordTotal, cashOutRecord, cashOutRecordTotal, other } = branch.record;
 
-  for(const type in cashInRecord){
-    insertCell(cashInRecord[type], right);
-  }
-  insertCell(cashInRecordTotal, rightBold);
-
-  for(const type in cashOutRecord){
-    insertCell(cashOutRecord[type], right);
-  }
-  insertCell(cashOutRecordTotal, rightBold);
+  insertCashflow(cashInRecord, cashInRecordTotal, right);
+  insertCashflow(cashOutRecord, cashOutRecordTotal, right);
 
   insertCell(branch.record.closingBalance, rightBold);
 
-  for(const type in other){
-    insertCell(other[type], right);
+  insertCashflow(other, null, right);
+
+  function insertCashflow(cashflow, cashflowTotal, style){
+    for(const type in cashflow){
+      insertCell(cashflow[type], style);
+    }
+
+    if(cashflowTotal != null){
+      insertCell(cashflowTotal, rightBold);
+    }
   }
 
   function insertCell(value, style){
