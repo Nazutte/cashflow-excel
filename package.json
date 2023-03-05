@@ -4,10 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "p": "node gen-cpr.js",
-    "b": "node gen-branch-report.js",
-    "c": "node gen-closing-report.js",
-    "d": "yarn p && yarn b && yarn c"
+    "cpr": "node gen-cpr.js",
+    "br": "node gen-branch-report.js",
+    "cr": "node gen-closing-report.js",
+    "dev": "yarn cpr && yarn br && yarn cr"
   },
   "dependencies": {
     "exceljs": "^4.3.0",

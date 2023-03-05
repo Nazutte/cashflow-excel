@@ -41,17 +41,56 @@ function createClosingReport(){
 
   insertRow('Branches', days, boldCenter);
 
+  closingData.branchArr.forEach(branch => {
+    const { name, dailyRecord } = branch;
+    insertRow(name, dailyRecord, center);
+  });
+
+  insertRow('Total', closingData.dailyTotal, boldCenter);
+
   function insertRow(branchName, values, style){
-    let columnCount = 65;
-    let exceed = 0;
+    let columnCount = [65];
     values = [branchName].concat(values);
 
     values.forEach(value => {
-      let cellName = String.fromCharCode(columnCount) + rowCount;
-      console.log(columnCount, cellName);
-      // const cell = worksheet.getCell(cellName);
-      // Object.assign(cell, style, { value });
-      columnCount++;
+      let cellName = '';
+      columnCount.forEach(charCode => {
+        cellName += String.fromCharCode(charCode);
+      });
+      cellName += rowCount;
+
+      const cell = worksheet.getCell(cellName);
+
+      if(branchName != 'Branches' && typeof value == 'number'){
+        value = value/100;
+        Object.assign(cell, style, { value }, { numFmt: '#,##0.00' }, {alignment: {horizontal: 'right', vertical: 'middle'}});
+      } else {
+        Object.assign(cell, style, { value });
+      }
+      
+      for(let j = columnCount.length; j > 0; j--){
+        if(columnCount[j - 1] != 90){
+          columnCount[j - 1]++;
+          break;
+        } else {
+          columnCount[j - 1] = 65;
+          if((j - 1) <= 0){
+            columnCount.push(65);
+            break;
+          }
+        }
+      }
     });
+    rowCount++;
   }
 }
+
+// function add() {
+//   let num = 0
+//   return function B() {
+//     num++
+//     console.log(num)
+//   }
+// }
+
+// const increment = add()

@@ -42,7 +42,7 @@ async function main(){
   worksheet = workbook.getWorksheet('Second Half');
   createCashflowExcel('secHalf', cashflow);
 
-  await workbook.xlsx.writeFile('./excel-files/excel.xlsx');
+  await workbook.xlsx.writeFile('./excel-files/cash-position-report.xlsx');
 }
 
 main();
